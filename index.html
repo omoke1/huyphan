@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Huy Phan — Independent Designer & Art Director</title>
+    <meta name="description" content="Interactive 3D WebGL portfolio and creative playground of Huy Phan (huyml.co), independent digital designer and art director based in Ho Chi Minh City." />
+    <meta property="og:title" content="Huy Phan — Independent Designer & Art Director" />
+    <meta property="og:description" content="Interactive 3D WebGL portfolio and creative playground of Huy Phan (huyml.co), independent digital designer and art director based in Ho Chi Minh City." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#ECECEC" />
+    <script>
+      (function () {
+        const origDefineProperty = Object.defineProperty;
+        Object.defineProperty = function (obj, prop, descriptor) {
+          if (obj === window && (prop === "ethereum" || prop === "solana")) {
+            try {
+              const existing = Object.getOwnPropertyDescriptor(window, prop);
+              if (existing && !existing.configurable) {
+                return obj;
+              }
+            } catch (e) {
+              return obj;
+            }
+          }
+          try {
+            return origDefineProperty.call(Object, obj, prop, descriptor);
+          } catch (e) {
+            if (prop === "ethereum" || prop === "solana") return obj;
+            throw e;
+          }
+        };
+      })();
+    </script>
+  </head>
+  <body class="bg-[#ECECEC] text-[#181818] antialiased selection:bg-[#181818] selection:text-[#ECECEC]">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

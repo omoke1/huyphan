@@ -1,0 +1,143 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "BT Grotesk Medium";
+  src: url("/assets/huyml/fonts/BT-Grotesk-Medium.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "BT Grotesk Regular";
+  src: url("/assets/huyml/fonts/BT-Grotesk-Regular.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "BT Grotesk Bold";
+  src: url("/assets/huyml/fonts/BT-Grotesk-Bold.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "BT Grotesk Bold Italic";
+  src: url("/assets/huyml/fonts/BT-Grotesk-BoldItalic.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "BT Glyphius Regular";
+  src: url("/assets/huyml/fonts/BT-Glyphius-Regular.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "BT Glyphius Bold";
+  src: url("/assets/huyml/fonts/BT-Glyphius-Bold.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "F37 Bolton Trial Regular";
+  src: url("/assets/huyml/fonts/F37-Bolton-Regular.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "F37 Bolton Trial Bold";
+  src: url("/assets/huyml/fonts/F37-Bolton-Bold.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700;
+}
+
+:root {
+  --bg-canvas: #ececec;
+  --text-primary: #181818;
+  --text-muted: rgba(24, 24, 24, 0.5);
+  --accent-red: #ff4949;
+  --font-grotesk-med: "BT Grotesk Medium", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-grotesk-reg: "BT Grotesk Regular", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-grotesk-bold: "BT Grotesk Bold", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-glyphius: "BT Glyphius Regular", Georgia, serif;
+  --font-glyphius-bold: "BT Glyphius Bold", Georgia, serif;
+  --font-bolton: "F37 Bolton Trial Regular", sans-serif;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  font-family: var(--font-grotesk-med);
+  overscroll-behavior: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-grotesk {
+  font-family: var(--font-grotesk-med);
+}
+
+.font-grotesk-reg {
+  font-family: var(--font-grotesk-reg);
+}
+
+.font-glyphius {
+  font-family: var(--font-glyphius);
+}
+
+.font-glyphius-bold {
+  font-family: var(--font-glyphius-bold);
+}
+
+.font-bolton {
+  font-family: var(--font-bolton);
+}
+
+/* Hide scrollbars while preserving scroll functionality */
+.no-scrollbar {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* Subtle link hover underline animation matching huyml.co */
+.huy-link {
+  position: relative;
+  display: inline-block;
+}
+.huy-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 1px;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.huy-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
