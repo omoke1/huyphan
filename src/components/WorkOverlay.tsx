@@ -154,8 +154,8 @@ export const WorkOverlay: React.FC<WorkOverlayProps> = ({
         </div>
       </div>
 
-      {/* Bottom-Left Scroll + Giant Project Counter Reel */}
-      <div className="absolute left-0 right-0 bottom-5 px-5 grid grid-cols-12 lg:grid-cols-16 gap-x-5 items-end text-[#181818] pointer-events-none">
+      {/* Bottom-Left Scroll + Giant Project Counter Reel (top on mobile, bottom on desktop) */}
+      <div className="absolute left-0 right-0 top-16 bottom-auto md:top-auto md:bottom-5 px-5 grid grid-cols-12 lg:grid-cols-16 gap-x-5 items-end text-[#181818] pointer-events-none">
         {/* Far bottom-left Scroll label */}
         <div className="hidden lg:flex lg:col-span-2 items-end pb-1">
           <span className="text-[12px] leading-[1.3] tracking-[0.01em] font-grotesk text-[#181818]/50">
@@ -164,7 +164,7 @@ export const WorkOverlay: React.FC<WorkOverlayProps> = ({
         </div>
 
         {/* Selected work + Giant 180px Counter + /19 */}
-        <div className="col-span-8 lg:col-span-6 flex items-end gap-4 md:gap-6">
+        <div className="col-span-12 md:col-span-8 lg:col-span-6 flex items-end gap-4 md:gap-6">
           <span className="hidden md:inline-block text-[12px] leading-[1.3] tracking-[0.01em] font-grotesk text-[#181818]/50 pb-2 whitespace-nowrap">
             Selected work
           </span>
@@ -172,12 +172,12 @@ export const WorkOverlay: React.FC<WorkOverlayProps> = ({
           <div
             ref={counterRef}
             style={{ willChange: "filter" }}
-            className="font-grotesk-reg text-[88px] md:text-[148px] xl:text-[176px] leading-[0.82] tracking-[-0.04em] text-[#181818] tabular-nums"
+            className="font-grotesk-reg text-[68px] md:text-[148px] xl:text-[176px] leading-[0.82] tracking-[-0.04em] text-[#181818] tabular-nums"
           >
             {String(activeIndex + 1).padStart(2, "0")}
           </div>
 
-          <div className="flex items-center gap-3 pb-2 pl-2 md:pl-6 pointer-events-auto" data-ui-interactive="true">
+          <div className="flex items-center gap-3 pb-1.5 md:pb-2 pl-2 md:pl-6 pointer-events-auto" data-ui-interactive="true">
             <span className="text-[12px] leading-[1.3] tracking-[0.01em] font-grotesk text-[#181818] tabular-nums">
               /{String(projects.length).padStart(2, "0")}
             </span>
@@ -215,10 +215,10 @@ export const WorkOverlay: React.FC<WorkOverlayProps> = ({
         onPointerMove={handlePointerMove}
         onPointerUp={handlePointerUp}
         onPointerCancel={handlePointerUp}
-        className="absolute right-0 top-0 bottom-0 w-full md:w-[440px] lg:w-[500px] flex items-center justify-center pointer-events-auto cursor-grab active:cursor-grabbing"
+        className="absolute right-0 top-0 bottom-0 w-full md:w-[440px] lg:w-[500px] flex items-end md:items-center justify-center pb-16 md:pb-0 pointer-events-auto cursor-grab active:cursor-grabbing"
       >
         {/* Vertical Stack of Project Info Cards */}
-        <div className="relative w-[300px] h-[82vh] flex flex-col items-center justify-center gap-12 overflow-hidden">
+        <div className="relative w-[300px] h-auto md:h-[82vh] flex flex-col items-center justify-end md:justify-center gap-12 overflow-visible md:overflow-hidden">
           {stackOffsets.map((offset) => {
             const pIdx = wrapIdx(activeIndex + offset, projects.length);
             const proj = projects[pIdx];
@@ -257,7 +257,7 @@ export const WorkOverlay: React.FC<WorkOverlayProps> = ({
                 </div>
 
                 {/* 12px Hairline Divider */}
-                <div className="w-[12px] h-[1px] bg-[#1E1E1E] my-4" />
+                <div className="w-[12px] h-[1px] bg-[#1E1E1E] my-3 md:my-4" />
 
                 {/* Project Description */}
                 <p className="text-[12px] leading-[1.35] tracking-[0.01em] font-grotesk text-[#1E1E1E] max-w-[290px]">
@@ -265,7 +265,7 @@ export const WorkOverlay: React.FC<WorkOverlayProps> = ({
                 </p>
 
                 {isCenter && (
-                  <span className="mt-3 text-[11px] font-grotesk text-[#1E1E1E]/50 hover:text-[#1E1E1E] underline transition-colors">
+                  <span className="mt-2.5 md:mt-3 text-[11px] font-grotesk text-[#1E1E1E]/50 hover:text-[#1E1E1E] underline transition-colors">
                     Open case study →
                   </span>
                 )}
@@ -277,7 +277,7 @@ export const WorkOverlay: React.FC<WorkOverlayProps> = ({
         {/* 3 Animated 15x15px Color Swatches on Right Edge (data-swatch-wrap) */}
         <div
           data-swatch-wrap="true"
-          className="fixed md:absolute bottom-7 md:bottom-auto left-1/2 md:left-auto -translate-x-1/2 md:translate-x-0 md:right-10 md:top-1/2 md:-translate-y-1/2 inline-flex items-center gap-[3px] pointer-events-auto"
+          className="fixed md:absolute bottom-6 md:bottom-auto left-1/2 md:left-auto -translate-x-1/2 md:translate-x-0 md:right-10 md:top-1/2 md:-translate-y-1/2 inline-flex items-center gap-[3px] pointer-events-auto"
         >
           <div
             title={`Primary: ${activeProject.colorA}`}
